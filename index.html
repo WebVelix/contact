@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VelixWeb - Criação de Sites Profissionais</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        color: #ffffff;
+        background: #000000;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      header {
+        background: linear-gradient(
+          135deg,
+          #000000 0%,
+          #1a1a1a 50%,
+          #000000 100%
+        );
+        color: white;
+        padding: 4rem 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at 20% 50%,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 50%,
+            rgba(255, 255, 255, 0.05) 0%,
+            transparent 50%
+          );
+        animation: shimmer 4s ease-in-out infinite;
+      }
+
+      @keyframes shimmer {
+        0%,
+        100% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+
+      .logo-container {
+        margin-bottom: 3rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .logo {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+        position: relative;
+        transform-style: preserve-3d;
+        animation: rotate3d 8s linear infinite;
+      }
+
+      .cube {
+        position: absolute;
+        transform-style: preserve-3d;
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+      }
+
+      .cube-large {
+        width: 70px;
+        height: 70px;
+        top: 40px;
+        left: 40px;
+      }
+
+      .cube-medium {
+        width: 45px;
+        height: 45px;
+        top: 10px;
+        left: 10px;
+      }
+
+      .cube-small {
+        width: 30px;
+        height: 30px;
+        top: 85px;
+        right: 10px;
+      }
+
+      .cube-face {
+        position: absolute;
+        border: 2px solid #ffffff;
+        backdrop-filter: blur(5px);
+      }
+
+      .cube-large .cube-face {
+        width: 70px;
+        height: 70px;
+      }
+
+      .cube-medium .cube-face {
+        width: 45px;
+        height: 45px;
+      }
+
+      .cube-small .cube-face {
+        width: 30px;
+        height: 30px;
+      }
+
+      /* Metallic faces */
+      .front {
+        background: linear-gradient(
+          145deg,
+          #ffffff 0%,
+          #cccccc 50%,
+          #ffffff 100%
+        );
+        transform: rotateY(0deg) translateZ(35px);
+      }
+      .back {
+        background: linear-gradient(
+          145deg,
+          #999999 0%,
+          #666666 50%,
+          #999999 100%
+        );
+        transform: rotateY(180deg) translateZ(35px);
+      }
+      .right {
+        background: linear-gradient(
+          145deg,
+          #cccccc 0%,
+          #888888 50%,
+          #cccccc 100%
+        );
+        transform: rotateY(90deg) translateZ(35px);
+      }
+      .left {
+        background: linear-gradient(
+          145deg,
+          #bbbbbb 0%,
+          #777777 50%,
+          #bbbbbb 100%
+        );
+        transform: rotateY(-90deg) translateZ(35px);
+      }
+      .top {
+        background: linear-gradient(
+          145deg,
+          #ffffff 0%,
+          #dddddd 50%,
+          #ffffff 100%
+        );
+        transform: rotateX(90deg) translateZ(35px);
+      }
+      .bottom {
+        background: linear-gradient(
+          145deg,
+          #555555 0%,
+          #333333 50%,
+          #555555 100%
+        );
+        transform: rotateX(-90deg) translateZ(35px);
+      }
+
+      .cube-medium .front {
+        transform: rotateY(0deg) translateZ(22.5px);
+      }
+      .cube-medium .back {
+        transform: rotateY(180deg) translateZ(22.5px);
+      }
+      .cube-medium .right {
+        transform: rotateY(90deg) translateZ(22.5px);
+      }
+      .cube-medium .left {
+        transform: rotateY(-90deg) translateZ(22.5px);
+      }
+      .cube-medium .top {
+        transform: rotateX(90deg) translateZ(22.5px);
+      }
+      .cube-medium .bottom {
+        transform: rotateX(-90deg) translateZ(22.5px);
+      }
+
+      .cube-small .front {
+        transform: rotateY(0deg) translateZ(15px);
+      }
+      .cube-small .back {
+        transform: rotateY(180deg) translateZ(15px);
+      }
+      .cube-small .right {
+        transform: rotateY(90deg) translateZ(15px);
+      }
+      .cube-small .left {
+        transform: rotateY(-90deg) translateZ(15px);
+      }
+      .cube-small .top {
+        transform: rotateX(90deg) translateZ(15px);
+      }
+      .cube-small .bottom {
+        transform: rotateX(-90deg) translateZ(15px);
+      }
+
+      @keyframes rotate3d {
+        0% {
+          transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        }
+        33% {
+          transform: rotateX(120deg) rotateY(120deg) rotateZ(0deg);
+        }
+        66% {
+          transform: rotateX(240deg) rotateY(240deg) rotateZ(120deg);
+        }
+        100% {
+          transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+        }
+      }
+
+      .brand-name {
+        font-size: 4rem;
+        font-weight: 100;
+        letter-spacing: 12px;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        background: linear-gradient(45deg, #ffffff, #cccccc, #ffffff);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: metallic-text 3s ease-in-out infinite;
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+      }
+
+      @keyframes metallic-text {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .tagline {
+        font-size: 1.3rem;
+        font-weight: 300;
+        letter-spacing: 4px;
+        opacity: 0.8;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        padding-top: 1.5rem;
+        display: inline-block;
+        text-transform: uppercase;
+      }
+
+      /* Floating metallic elements */
+      .floating-element {
+        position: absolute;
+        opacity: 0.1;
+        font-size: 2rem;
+        color: #ffffff;
+        animation: floatMetal 10s ease-in-out infinite;
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+      }
+
+      .floating-element:nth-child(1) {
+        top: 10%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .floating-element:nth-child(2) {
+        top: 20%;
+        right: 15%;
+        animation-delay: 2s;
+      }
+      .floating-element:nth-child(3) {
+        bottom: 30%;
+        left: 20%;
+        animation-delay: 4s;
+      }
+      .floating-element:nth-child(4) {
+        bottom: 20%;
+        right: 10%;
+        animation-delay: 6s;
+      }
+
+      @keyframes floatMetal {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg) scale(1);
+          opacity: 0.1;
+        }
+        25% {
+          transform: translate(15px, -15px) rotate(90deg) scale(1.2);
+          opacity: 0.3;
+        }
+        50% {
+          transform: translate(-10px, -25px) rotate(180deg) scale(1.5);
+          opacity: 0.2;
+        }
+        75% {
+          transform: translate(-15px, 15px) rotate(270deg) scale(1.1);
+          opacity: 0.4;
+        }
+      }
+
+      /* Main content */
+      main {
+        padding: 6rem 0;
+      }
+
+      .hero {
+        text-align: center;
+        margin-bottom: 6rem;
+      }
+
+      .hero h2 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        color: #ffffff;
+        font-weight: 100;
+        letter-spacing: 3px;
+        background: linear-gradient(45deg, #ffffff, #999999, #ffffff);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: metallic-text 4s ease-in-out infinite;
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        color: #cccccc;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.8;
+      }
+
+      /* Services */
+      .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 3rem;
+        margin: 6rem 0;
+      }
+
+      .service-card {
+        background: linear-gradient(145deg, #1a1a1a, #000000);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid #333333;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+        transform-style: preserve-3d;
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transform: rotate(45deg);
+        transition: all 0.6s ease;
+        opacity: 0;
+      }
+
+      .service-card:hover {
+        transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+        box-shadow: 0 30px 60px rgba(255, 255, 255, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        border-color: #666666;
+      }
+
+      .service-card:hover::before {
+        opacity: 1;
+        top: -100%;
+        left: -100%;
+      }
+
+      .service-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(145deg, #ffffff, #cccccc);
+        border-radius: 50%;
+        margin: 0 auto 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: #000000;
+        box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        transition: all 0.4s ease;
+      }
+
+      .service-card:hover .service-icon {
+        transform: rotateY(180deg) scale(1.1);
+        box-shadow: 0 20px 40px rgba(255, 255, 255, 0.3),
+          inset 0 2px 0 rgba(255, 255, 255, 0.4),
+          inset 0 -2px 0 rgba(0, 0, 0, 0.3);
+      }
+
+      .service-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: #ffffff;
+        font-weight: 300;
+        letter-spacing: 2px;
+      }
+
+      .service-card p {
+        color: #cccccc;
+        line-height: 1.8;
+        font-size: 1.1rem;
+      }
+
+      /* Contact section */
+      .contact-section {
+        text-align: center;
+        padding: 6rem 0;
+        background: linear-gradient(145deg, #1a1a1a, #000000);
+        border-radius: 30px;
+        margin: 6rem 0;
+        border: 1px solid #333333;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at 30% 30%,
+            rgba(255, 255, 255, 0.05) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 70% 70%,
+            rgba(255, 255, 255, 0.03) 0%,
+            transparent 50%
+          );
+      }
+
+      .contact-section h2 {
+        margin-bottom: 2rem;
+        color: #ffffff;
+        font-size: 2.5rem;
+        font-weight: 100;
+        letter-spacing: 3px;
+      }
+
+      .contact-section p {
+        margin-bottom: 3rem;
+        color: #cccccc;
+        font-size: 1.2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .contact-btn {
+        display: inline-block;
+        background: linear-gradient(145deg, #ffffff, #cccccc);
+        color: #000000;
+        padding: 1.5rem 4rem;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 1.3rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2),
+          inset 0 2px 0 rgba(255, 255, 255, 0.3),
+          inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 2;
+        transform-style: preserve-3d;
+      }
+
+      .contact-btn:hover {
+        transform: translateY(-10px) rotateX(-10deg);
+        box-shadow: 0 25px 50px rgba(255, 255, 255, 0.3),
+          inset 0 3px 0 rgba(255, 255, 255, 0.4),
+          inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+        background: linear-gradient(145deg, #ffffff, #eeeeee);
+      }
+
+      /* Footer */
+      footer {
+        background: linear-gradient(145deg, #000000, #1a1a1a);
+        color: #cccccc;
+        text-align: center;
+        padding: 3rem 0;
+        border-top: 1px solid #333333;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .brand-name {
+          font-size: 2.8rem;
+          letter-spacing: 6px;
+        }
+
+        .hero h2 {
+          font-size: 2.2rem;
+        }
+
+        .services {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .service-card {
+          padding: 2rem;
+        }
+
+        .contact-btn {
+          padding: 1.2rem 3rem;
+          font-size: 1.1rem;
+        }
+      }
+
+      /* Additional metallic effects */
+      .metal-shine {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .metal-shine::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        transition: left 0.8s ease;
+      }
+
+      .metal-shine:hover::after {
+        left: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="floating-element">⬛</div>
+      <div class="floating-element">⬜</div>
+      <div class="floating-element">◆</div>
+      <div class="floating-element">●</div>
+
+      <div class="container">
+        <div class="logo-container">
+          <div class="logo">
+            <div class="cube cube-large">
+              <div class="cube-face front"></div>
+              <div class="cube-face back"></div>
+              <div class="cube-face right"></div>
+              <div class="cube-face left"></div>
+              <div class="cube-face top"></div>
+              <div class="cube-face bottom"></div>
+            </div>
+            <div class="cube cube-medium">
+              <div class="cube-face front"></div>
+              <div class="cube-face back"></div>
+              <div class="cube-face right"></div>
+              <div class="cube-face left"></div>
+              <div class="cube-face top"></div>
+              <div class="cube-face bottom"></div>
+            </div>
+            <div class="cube cube-small">
+              <div class="cube-face front"></div>
+              <div class="cube-face back"></div>
+              <div class="cube-face right"></div>
+              <div class="cube-face left"></div>
+              <div class="cube-face top"></div>
+              <div class="cube-face bottom"></div>
+            </div>
+          </div>
+        </div>
+        <h1 class="brand-name">VelixWeb</h1>
+        <p class="tagline">Criação de Sites</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="hero">
+          <h2>Transformamos Suas Ideias em Realidade Digital</h2>
+          <p>
+            Criamos sites profissionais, modernos e responsivos que elevam sua
+            marca e conectam você ao seu público-alvo de forma única e
+            impactante através de tecnologia de ponta.
+          </p>
+        </section>
+
+        <section class="services">
+          <div class="service-card metal-shine">
+            <div class="service-icon">🎨</div>
+            <h3>Design Premium</h3>
+            <p>
+              Interfaces elegantes e minimalistas que refletem sofisticação.
+              Cada elemento é cuidadosamente projetado para criar experiências
+              visuais memoráveis.
+            </p>
+          </div>
+
+          <div class="service-card metal-shine">
+            <div class="service-icon">📱</div>
+            <h3>Ultra Responsivo</h3>
+            <p>
+              Experiência perfeita em qualquer dispositivo. Nossos sites se
+              adaptam fluidamente a todas as telas, mantendo elegância e
+              funcionalidade.
+            </p>
+          </div>
+
+          <div class="service-card metal-shine">
+            <div class="service-icon">⚡</div>
+            <h3>Performance Máxima</h3>
+            <p>
+              Velocidade de carregamento otimizada e código limpo. Sites que
+              impressionam pela rapidez e eficiência em qualquer conexão.
+            </p>
+          </div>
+
+          <div class="service-card metal-shine">
+            <div class="service-icon">🔒</div>
+            <h3>Segurança Total</h3>
+            <p>
+              Proteção avançada contra ameaças digitais. Implementamos as
+              tecnologias de segurança mais modernas do mercado.
+            </p>
+          </div>
+
+          <div class="service-card metal-shine">
+            <div class="service-icon">🚀</div>
+            <h3>SEO Avançado</h3>
+            <p>
+              Posicionamento estratégico nos mecanismos de busca. Estrutura
+              otimizada para máxima visibilidade digital.
+            </p>
+          </div>
+
+          <div class="service-card metal-shine">
+            <div class="service-icon">💎</div>
+            <h3>Suporte Premium</h3>
+            <p>
+              Acompanhamento especializado contínuo. Nossa equipe garante que
+              seu site permaneça sempre no mais alto nível.
+            </p>
+          </div>
+        </section>
+
+        <section class="contact-section">
+          <h2>Pronto para Revolucionar sua Presença Digital?</h2>
+          <p>
+            Entre em contato conosco e vamos criar uma experiência digital
+            extraordinária que vai transformar sua marca.
+          </p>
+          <a href="mailto:velixweb@gmail.com" class="contact-btn"
+            >Iniciar Projeto</a
+          >
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2025 VelixWeb. Todos os direitos reservados. | Excelência em
+          Criação Digital
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Enhanced 3D effects on scroll
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll(".floating-element");
+        const serviceCards = document.querySelectorAll(".service-card");
+
+        // Parallax effect for floating elements
+        parallaxElements.forEach((element, index) => {
+          const speed = 0.3 + index * 0.1;
+          const yPos = -(scrolled * speed);
+          const rotation = scrolled * 0.1;
+          element.style.transform = `translateY(${yPos}px) rotate(${rotation}deg)`;
+        });
+
+        // 3D tilt effect for service cards
+        serviceCards.forEach((card, index) => {
+          const rect = card.getBoundingClientRect();
+          const cardCenter = rect.top + rect.height / 2;
+          const windowCenter = window.innerHeight / 2;
+          const distance = (cardCenter - windowCenter) / windowCenter;
+
+          if (Math.abs(distance) < 1) {
+            const rotateX = distance * 10;
+            const rotateY = (index % 2 === 0 ? 1 : -1) * distance * 5;
+            card.style.transform = `translateY(0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          }
+        });
+      });
+
+      // Mouse move 3D effect
+      document.addEventListener("mousemove", (e) => {
+        const mouseX = e.clientX / window.innerWidth - 0.5;
+        const mouseY = e.clientY / window.innerHeight - 0.5;
+
+        const serviceCards = document.querySelectorAll(".service-card");
+        serviceCards.forEach((card, index) => {
+          const rect = card.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const rotateY = mouseX * 10;
+            const rotateX = -mouseY * 10;
+            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          }
+        });
+      });
+
+      // Reset card transforms when mouse leaves
+      document.addEventListener("mouseleave", () => {
+        const serviceCards = document.querySelectorAll(".service-card");
+        serviceCards.forEach((card) => {
+          card.style.transform = "rotateX(0deg) rotateY(0deg)";
+        });
+      });
+
+      // Enhanced loading animation
+      window.addEventListener("load", () => {
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 1s ease-in-out";
+        setTimeout(() => {
+          document.body.style.opacity = "1";
+        }, 200);
+      });
+
+      // Add metallic sound effect simulation (visual feedback)
+      document
+        .querySelectorAll(".service-card, .contact-btn")
+        .forEach((element) => {
+          element.addEventListener("mouseenter", function () {
+            this.style.filter = "brightness(1.2) contrast(1.1)";
+          });
+
+          element.addEventListener("mouseleave", function () {
+            this.style.filter = "brightness(1) contrast(1)";
+          });
+        });
+    </script>
+  </body>
+</html>
