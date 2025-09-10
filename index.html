@@ -25,14 +25,61 @@
         padding: 0 20px;
       }
 
+      /* Navigation */
+      nav {
+        background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid #333;
+        backdrop-filter: blur(10px);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .nav-menu {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-item {
+        position: relative;
+      }
+
+      .nav-link {
+        color: #cccccc;
+        text-decoration: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        background: linear-gradient(145deg, transparent, rgba(255,255,255,0.05));
+        border: 1px solid transparent;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: #000000;
+        background: linear-gradient(145deg, #ffffff, #cccccc);
+        border-color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255,255,255,0.2);
+      }
+
       /* Header */
       header {
-        background: linear-gradient(
-          135deg,
-          #000000 0%,
-          #1a1a1a 50%,
-          #000000 100%
-        );
+        background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
         color: white;
         padding: 4rem 0;
         text-align: center;
@@ -47,27 +94,14 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: radial-gradient(
-            circle at 20% 50%,
-            rgba(255, 255, 255, 0.1) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 80% 50%,
-            rgba(255, 255, 255, 0.05) 0%,
-            transparent 50%
-          );
+        background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
         animation: shimmer 4s ease-in-out infinite;
       }
 
       @keyframes shimmer {
-        0%,
-        100% {
-          opacity: 0.3;
-        }
-        50% {
-          opacity: 0.8;
-        }
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.8; }
       }
 
       .logo-container {
@@ -77,8 +111,8 @@
       }
 
       .logo {
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
         margin: 0 auto;
         position: relative;
         transform-style: preserve-3d;
@@ -92,23 +126,23 @@
       }
 
       .cube-large {
-        width: 70px;
-        height: 70px;
-        top: 40px;
-        left: 40px;
+        width: 60px;
+        height: 60px;
+        top: 30px;
+        left: 30px;
       }
 
       .cube-medium {
-        width: 45px;
-        height: 45px;
+        width: 35px;
+        height: 35px;
         top: 10px;
         left: 10px;
       }
 
       .cube-small {
-        width: 30px;
-        height: 30px;
-        top: 85px;
+        width: 25px;
+        height: 25px;
+        top: 70px;
         right: 10px;
       }
 
@@ -118,132 +152,58 @@
         backdrop-filter: blur(5px);
       }
 
-      .cube-large .cube-face {
-        width: 70px;
-        height: 70px;
-      }
+      .cube-large .cube-face { width: 60px; height: 60px; }
+      .cube-medium .cube-face { width: 35px; height: 35px; }
+      .cube-small .cube-face { width: 25px; height: 25px; }
 
-      .cube-medium .cube-face {
-        width: 45px;
-        height: 45px;
-      }
-
-      .cube-small .cube-face {
-        width: 30px;
-        height: 30px;
-      }
-
-      /* Metallic faces */
       .front {
-        background: linear-gradient(
-          145deg,
-          #ffffff 0%,
-          #cccccc 50%,
-          #ffffff 100%
-        );
-        transform: rotateY(0deg) translateZ(35px);
+        background: linear-gradient(145deg, #ffffff 0%, #cccccc 50%, #ffffff 100%);
+        transform: rotateY(0deg) translateZ(30px);
       }
       .back {
-        background: linear-gradient(
-          145deg,
-          #999999 0%,
-          #666666 50%,
-          #999999 100%
-        );
-        transform: rotateY(180deg) translateZ(35px);
+        background: linear-gradient(145deg, #999999 0%, #666666 50%, #999999 100%);
+        transform: rotateY(180deg) translateZ(30px);
       }
       .right {
-        background: linear-gradient(
-          145deg,
-          #cccccc 0%,
-          #888888 50%,
-          #cccccc 100%
-        );
-        transform: rotateY(90deg) translateZ(35px);
+        background: linear-gradient(145deg, #cccccc 0%, #888888 50%, #cccccc 100%);
+        transform: rotateY(90deg) translateZ(30px);
       }
       .left {
-        background: linear-gradient(
-          145deg,
-          #bbbbbb 0%,
-          #777777 50%,
-          #bbbbbb 100%
-        );
-        transform: rotateY(-90deg) translateZ(35px);
+        background: linear-gradient(145deg, #bbbbbb 0%, #777777 50%, #bbbbbb 100%);
+        transform: rotateY(-90deg) translateZ(30px);
       }
       .top {
-        background: linear-gradient(
-          145deg,
-          #ffffff 0%,
-          #dddddd 50%,
-          #ffffff 100%
-        );
-        transform: rotateX(90deg) translateZ(35px);
+        background: linear-gradient(145deg, #ffffff 0%, #dddddd 50%, #ffffff 100%);
+        transform: rotateX(90deg) translateZ(30px);
       }
       .bottom {
-        background: linear-gradient(
-          145deg,
-          #555555 0%,
-          #333333 50%,
-          #555555 100%
-        );
-        transform: rotateX(-90deg) translateZ(35px);
+        background: linear-gradient(145deg, #555555 0%, #333333 50%, #555555 100%);
+        transform: rotateX(-90deg) translateZ(30px);
       }
 
-      .cube-medium .front {
-        transform: rotateY(0deg) translateZ(22.5px);
-      }
-      .cube-medium .back {
-        transform: rotateY(180deg) translateZ(22.5px);
-      }
-      .cube-medium .right {
-        transform: rotateY(90deg) translateZ(22.5px);
-      }
-      .cube-medium .left {
-        transform: rotateY(-90deg) translateZ(22.5px);
-      }
-      .cube-medium .top {
-        transform: rotateX(90deg) translateZ(22.5px);
-      }
-      .cube-medium .bottom {
-        transform: rotateX(-90deg) translateZ(22.5px);
-      }
+      .cube-medium .front { transform: rotateY(0deg) translateZ(17.5px); }
+      .cube-medium .back { transform: rotateY(180deg) translateZ(17.5px); }
+      .cube-medium .right { transform: rotateY(90deg) translateZ(17.5px); }
+      .cube-medium .left { transform: rotateY(-90deg) translateZ(17.5px); }
+      .cube-medium .top { transform: rotateX(90deg) translateZ(17.5px); }
+      .cube-medium .bottom { transform: rotateX(-90deg) translateZ(17.5px); }
 
-      .cube-small .front {
-        transform: rotateY(0deg) translateZ(15px);
-      }
-      .cube-small .back {
-        transform: rotateY(180deg) translateZ(15px);
-      }
-      .cube-small .right {
-        transform: rotateY(90deg) translateZ(15px);
-      }
-      .cube-small .left {
-        transform: rotateY(-90deg) translateZ(15px);
-      }
-      .cube-small .top {
-        transform: rotateX(90deg) translateZ(15px);
-      }
-      .cube-small .bottom {
-        transform: rotateX(-90deg) translateZ(15px);
-      }
+      .cube-small .front { transform: rotateY(0deg) translateZ(12.5px); }
+      .cube-small .back { transform: rotateY(180deg) translateZ(12.5px); }
+      .cube-small .right { transform: rotateY(90deg) translateZ(12.5px); }
+      .cube-small .left { transform: rotateY(-90deg) translateZ(12.5px); }
+      .cube-small .top { transform: rotateX(90deg) translateZ(12.5px); }
+      .cube-small .bottom { transform: rotateX(-90deg) translateZ(12.5px); }
 
       @keyframes rotate3d {
-        0% {
-          transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-        }
-        33% {
-          transform: rotateX(120deg) rotateY(120deg) rotateZ(0deg);
-        }
-        66% {
-          transform: rotateX(240deg) rotateY(240deg) rotateZ(120deg);
-        }
-        100% {
-          transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
-        }
+        0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+        33% { transform: rotateX(120deg) rotateY(120deg) rotateZ(0deg); }
+        66% { transform: rotateX(240deg) rotateY(240deg) rotateZ(120deg); }
+        100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
       }
 
       .brand-name {
-        font-size: 4rem;
+        font-size: 3.5rem;
         font-weight: 100;
         letter-spacing: 12px;
         margin-bottom: 0.5rem;
@@ -258,17 +218,12 @@
       }
 
       @keyframes metallic-text {
-        0%,
-        100% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
       }
 
       .tagline {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         font-weight: 300;
         letter-spacing: 4px;
         opacity: 0.8;
@@ -278,69 +233,39 @@
         text-transform: uppercase;
       }
 
-      /* Floating metallic elements */
-      .floating-element {
-        position: absolute;
-        opacity: 0.1;
-        font-size: 2rem;
+      /* Content Sections */
+      .content-section {
+        display: none;
+        padding: 4rem 0;
+        min-height: 70vh;
+      }
+
+      .content-section.active {
+        display: block;
+      }
+
+      .section-title {
+        font-size: 2.8rem;
+        text-align: center;
+        margin-bottom: 3rem;
         color: #ffffff;
-        animation: floatMetal 10s ease-in-out infinite;
-        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
-      }
-
-      .floating-element:nth-child(1) {
-        top: 10%;
-        left: 10%;
-        animation-delay: 0s;
-      }
-      .floating-element:nth-child(2) {
-        top: 20%;
-        right: 15%;
-        animation-delay: 2s;
-      }
-      .floating-element:nth-child(3) {
-        bottom: 30%;
-        left: 20%;
-        animation-delay: 4s;
-      }
-      .floating-element:nth-child(4) {
-        bottom: 20%;
-        right: 10%;
-        animation-delay: 6s;
-      }
-
-      @keyframes floatMetal {
-        0%,
-        100% {
-          transform: translate(0, 0) rotate(0deg) scale(1);
-          opacity: 0.1;
-        }
-        25% {
-          transform: translate(15px, -15px) rotate(90deg) scale(1.2);
-          opacity: 0.3;
-        }
-        50% {
-          transform: translate(-10px, -25px) rotate(180deg) scale(1.5);
-          opacity: 0.2;
-        }
-        75% {
-          transform: translate(-15px, 15px) rotate(270deg) scale(1.1);
-          opacity: 0.4;
-        }
-      }
-
-      /* Main content */
-      main {
-        padding: 6rem 0;
+        font-weight: 100;
+        letter-spacing: 3px;
+        background: linear-gradient(45deg, #ffffff, #999999, #ffffff);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: metallic-text 4s ease-in-out infinite;
       }
 
       .hero {
         text-align: center;
-        margin-bottom: 6rem;
+        margin-bottom: 4rem;
       }
 
       .hero h2 {
-        font-size: 3rem;
+        font-size: 2.5rem;
         margin-bottom: 2rem;
         color: #ffffff;
         font-weight: 100;
@@ -354,24 +279,24 @@
       }
 
       .hero p {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         color: #cccccc;
         max-width: 700px;
         margin: 0 auto;
         line-height: 1.8;
       }
 
-      /* Services */
+      /* Services Grid */
       .services {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 3rem;
-        margin: 6rem 0;
+        margin: 4rem 0;
       }
 
       .service-card {
         background: linear-gradient(145deg, #1a1a1a, #000000);
-        padding: 3rem;
+        padding: 2.5rem;
         border-radius: 20px;
         border: 1px solid #333333;
         text-align: center;
@@ -388,21 +313,15 @@
         left: -50%;
         width: 200%;
         height: 200%;
-        background: linear-gradient(
-          45deg,
-          transparent,
-          rgba(255, 255, 255, 0.1),
-          transparent
-        );
+        background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
         transform: rotate(45deg);
         transition: all 0.6s ease;
         opacity: 0;
       }
 
       .service-card:hover {
-        transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
-        box-shadow: 0 30px 60px rgba(255, 255, 255, 0.1),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+        box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
         border-color: #666666;
       }
 
@@ -413,32 +332,28 @@
       }
 
       .service-icon {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
         background: linear-gradient(145deg, #ffffff, #cccccc);
         border-radius: 50%;
-        margin: 0 auto 2rem;
+        margin: 0 auto 1.5rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 2rem;
+        font-size: 1.8rem;
         color: #000000;
-        box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2),
-          inset 0 1px 0 rgba(255, 255, 255, 0.3),
-          inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
         transition: all 0.4s ease;
       }
 
       .service-card:hover .service-icon {
         transform: rotateY(180deg) scale(1.1);
-        box-shadow: 0 20px 40px rgba(255, 255, 255, 0.3),
-          inset 0 2px 0 rgba(255, 255, 255, 0.4),
-          inset 0 -2px 0 rgba(0, 0, 0, 0.3);
+        box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
       }
 
       .service-card h3 {
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
         color: #ffffff;
         font-weight: 300;
         letter-spacing: 2px;
@@ -447,16 +362,116 @@
       .service-card p {
         color: #cccccc;
         line-height: 1.8;
-        font-size: 1.1rem;
+        font-size: 1rem;
+      }
+
+      /* Info Cards for educational content */
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .info-card {
+        background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+        padding: 2rem;
+        border-radius: 15px;
+        border: 1px solid #333;
+        transition: all 0.3s ease;
+      }
+
+      .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(255,255,255,0.1);
+        border-color: #555;
+      }
+
+      .info-card h3 {
+        color: #ffffff;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        font-weight: 300;
+        letter-spacing: 1px;
+      }
+
+      .info-card p, .info-card li {
+        color: #cccccc;
+        line-height: 1.7;
+        margin-bottom: 0.8rem;
+      }
+
+      .info-card ul {
+        padding-left: 1.5rem;
+      }
+
+      .highlight {
+        color: #ffffff;
+        background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+        padding: 0.2rem 0.5rem;
+        border-radius: 5px;
+        font-weight: 500;
+      }
+
+      /* Timeline for process */
+      .timeline {
+        position: relative;
+        padding-left: 2rem;
+        margin: 2rem 0;
+      }
+
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, #ffffff, #666666);
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 2rem;
+        background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+        padding: 1.5rem;
+        border-radius: 10px;
+        border: 1px solid #333;
+      }
+
+      .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -1.5rem;
+        top: 1.5rem;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ffffff;
+        box-shadow: 0 0 10px rgba(255,255,255,0.5);
+      }
+
+      .timeline-item h4 {
+        color: #ffffff;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        font-weight: 400;
+      }
+
+      .timeline-item .duration {
+        color: #999;
+        font-size: 0.9rem;
+        font-style: italic;
+        margin-bottom: 0.8rem;
       }
 
       /* Contact section */
       .contact-section {
         text-align: center;
-        padding: 6rem 0;
+        padding: 4rem 0;
         background: linear-gradient(145deg, #1a1a1a, #000000);
         border-radius: 30px;
-        margin: 6rem 0;
+        margin: 4rem 0;
         border: 1px solid #333333;
         position: relative;
         overflow: hidden;
@@ -469,30 +484,22 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: radial-gradient(
-            circle at 30% 30%,
-            rgba(255, 255, 255, 0.05) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 70% 70%,
-            rgba(255, 255, 255, 0.03) 0%,
-            transparent 50%
-          );
+        background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+          radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
       }
 
       .contact-section h2 {
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
         color: #ffffff;
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: 100;
         letter-spacing: 3px;
       }
 
       .contact-section p {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
         color: #cccccc;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         position: relative;
         z-index: 2;
       }
@@ -501,27 +508,23 @@
         display: inline-block;
         background: linear-gradient(145deg, #ffffff, #cccccc);
         color: #000000;
-        padding: 1.5rem 4rem;
+        padding: 1rem 3rem;
         text-decoration: none;
         border-radius: 50px;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         font-weight: 600;
         letter-spacing: 2px;
         text-transform: uppercase;
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2),
-          inset 0 2px 0 rgba(255, 255, 255, 0.3),
-          inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
         position: relative;
         z-index: 2;
         transform-style: preserve-3d;
       }
 
       .contact-btn:hover {
-        transform: translateY(-10px) rotateX(-10deg);
-        box-shadow: 0 25px 50px rgba(255, 255, 255, 0.3),
-          inset 0 3px 0 rgba(255, 255, 255, 0.4),
-          inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+        transform: translateY(-5px) rotateX(-5deg);
+        box-shadow: 0 20px 40px rgba(255, 255, 255, 0.3);
         background: linear-gradient(145deg, #ffffff, #eeeeee);
       }
 
@@ -530,70 +533,79 @@
         background: linear-gradient(145deg, #000000, #1a1a1a);
         color: #cccccc;
         text-align: center;
-        padding: 3rem 0;
+        padding: 2rem 0;
         border-top: 1px solid #333333;
       }
 
       /* Responsive */
       @media (max-width: 768px) {
+        .nav-menu {
+          gap: 1rem;
+        }
+
+        .nav-link {
+          padding: 0.6rem 1rem;
+          font-size: 0.8rem;
+          letter-spacing: 0.5px;
+        }
+
         .brand-name {
-          font-size: 2.8rem;
+          font-size: 2.5rem;
           letter-spacing: 6px;
         }
 
+        .section-title {
+          font-size: 2rem;
+        }
+
         .hero h2 {
-          font-size: 2.2rem;
+          font-size: 2rem;
         }
 
-        .services {
+        .services, .info-grid {
           grid-template-columns: 1fr;
-          gap: 2rem;
+          gap: 1.5rem;
         }
 
-        .service-card {
-          padding: 2rem;
+        .service-card, .info-card {
+          padding: 1.5rem;
         }
 
-        .contact-btn {
-          padding: 1.2rem 3rem;
-          font-size: 1.1rem;
+        .timeline {
+          padding-left: 1.5rem;
         }
-      }
-
-      /* Additional metallic effects */
-      .metal-shine {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .metal-shine::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.4),
-          transparent
-        );
-        transition: left 0.8s ease;
-      }
-
-      .metal-shine:hover::after {
-        left: 100%;
       }
     </style>
   </head>
   <body>
-    <header>
-      <div class="floating-element">⬛</div>
-      <div class="floating-element">⬜</div>
-      <div class="floating-element">◆</div>
-      <div class="floating-element">●</div>
+    <nav>
+      <div class="container">
+        <div class="nav-container">
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="#" class="nav-link active" data-section="home">Início</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" data-section="curiosidades">Curiosidades</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" data-section="hospedagem">Hospedagem</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" data-section="processo">Processo</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" data-section="tecnologia">Tecnologia</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" data-section="tempo">Cronograma</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
+    <header>
       <div class="container">
         <div class="logo-container">
           <div class="logo">
@@ -630,82 +642,510 @@
 
     <main>
       <div class="container">
-        <section class="hero">
-          <h2>Transformamos Suas Ideias em Realidade Digital</h2>
-          <p>
-            Criamos sites profissionais, modernos e responsivos que elevam sua
-            marca e conectam você ao seu público-alvo de forma única e
-            impactante através de tecnologia de ponta.
-          </p>
+        <!-- HOME SECTION -->
+        <section id="home" class="content-section active">
+          <div class="hero">
+            <h2>Transformamos Suas Ideias em Realidade Digital</h2>
+            <p>
+              Criamos sites profissionais, modernos e responsivos que elevam sua
+              marca e conectam você ao seu público-alvo de forma única e
+              impactante através de tecnologia de ponta.
+            </p>
+          </div>
+
+          <div class="services">
+            <div class="service-card">
+              <div class="service-icon">🎨</div>
+              <h3>Design Premium</h3>
+              <p>
+                Interfaces elegantes e minimalistas que refletem sofisticação.
+                Cada elemento é cuidadosamente projetado para criar experiências
+                visuais memoráveis.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">📱</div>
+              <h3>Ultra Responsivo</h3>
+              <p>
+                Experiência perfeita em qualquer dispositivo. Nossos sites se
+                adaptam fluidamente a todas as telas, mantendo elegância e
+                funcionalidade.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">⚡</div>
+              <h3>Performance Máxima</h3>
+              <p>
+                Velocidade de carregamento otimizada e código limpo. Sites que
+                impressionam pela rapidez e eficiência em qualquer conexão.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">🔒</div>
+              <h3>Segurança Total</h3>
+              <p>
+                Proteção avançada contra ameaças digitais. Implementamos as
+                tecnologias de segurança mais modernas do mercado.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">🚀</div>
+              <h3>SEO Avançado</h3>
+              <p>
+                Posicionamento estratégico nos mecanismos de busca. Estrutura
+                otimizada para máxima visibilidade digital.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">💎</div>
+              <h3>Suporte Premium</h3>
+              <p>
+                Acompanhamento especializado contínuo. Nossa equipe garante que
+                seu site permaneça sempre no mais alto nível.
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-section">
+            <h2>Pronto para Revolucionar sua Presença Digital?</h2>
+            <p>
+              Entre em contato conosco e vamos criar uma experiência digital
+              extraordinária que vai transformar sua marca.
+            </p>
+            <a href="mailto:velixweb@gmail.com" class="contact-btn">Iniciar Projeto</a>
+          </div>
         </section>
 
-        <section class="services">
-          <div class="service-card metal-shine">
-            <div class="service-icon">🎨</div>
-            <h3>Design Premium</h3>
-            <p>
-              Interfaces elegantes e minimalistas que refletem sofisticação.
-              Cada elemento é cuidadosamente projetado para criar experiências
-              visuais memoráveis.
-            </p>
-          </div>
+        <!-- CURIOSIDADES SECTION -->
+        <section id="curiosidades" class="content-section">
+          <h2 class="section-title">Curiosidades do Mundo Web</h2>
+          
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>🌍 A Internet em Números</h3>
+              <p>Existem mais de <span class="highlight">1,8 bilhão</span> de sites ativos na internet, mas apenas cerca de 200 milhões são realmente ativos e atualizados regularmente.</p>
+              <p>O primeiro site da história ainda está no ar desde 1991: <span class="highlight">info.cern.ch</span></p>
+            </div>
 
-          <div class="service-card metal-shine">
-            <div class="service-icon">📱</div>
-            <h3>Ultra Responsivo</h3>
-            <p>
-              Experiência perfeita em qualquer dispositivo. Nossos sites se
-              adaptam fluidamente a todas as telas, mantendo elegância e
-              funcionalidade.
-            </p>
-          </div>
+            <div class="info-card">
+              <h3>⚡ Velocidade é Tudo</h3>
+              <p>Um atraso de apenas <span class="highlight">1 segundo</span> no carregamento pode reduzir as conversões em 7% e aumentar a taxa de rejeição em 11%.</p>
+              <p>O Google considera sites que carregam em menos de 3 segundos como "rápidos".</p>
+            </div>
 
-          <div class="service-card metal-shine">
-            <div class="service-icon">⚡</div>
-            <h3>Performance Máxima</h3>
-            <p>
-              Velocidade de carregamento otimizada e código limpo. Sites que
-              impressionam pela rapidez e eficiência em qualquer conexão.
-            </p>
-          </div>
+            <div class="info-card">
+              <h3>📱 Mobile First</h3>
+              <p>Mais de <span class="highlight">60%</span> do tráfego web global vem de dispositivos móveis.</p>
+              <p>O Google usa a versão mobile do seu site como base para indexação desde 2019.</p>
+            </div>
 
-          <div class="service-card metal-shine">
-            <div class="service-icon">🔒</div>
-            <h3>Segurança Total</h3>
-            <p>
-              Proteção avançada contra ameaças digitais. Implementamos as
-              tecnologias de segurança mais modernas do mercado.
-            </p>
-          </div>
+            <div class="info-card">
+              <h3>🎨 Cores e Psicologia</h3>
+              <p>O azul é a cor mais confiável para sites corporativos, enquanto o laranja aumenta as conversões em até <span class="highlight">32%</span> em botões de call-to-action.</p>
+              <p>Usuários formam uma opinião sobre um site em apenas <span class="highlight">0,05 segundos</span>.</p>
+            </div>
 
-          <div class="service-card metal-shine">
-            <div class="service-icon">🚀</div>
-            <h3>SEO Avançado</h3>
-            <p>
-              Posicionamento estratégico nos mecanismos de busca. Estrutura
-              otimizada para máxima visibilidade digital.
-            </p>
-          </div>
+            <div class="info-card">
+              <h3>🔍 SEO Facts</h3>
+              <p>A primeira posição no Google recebe <span class="highlight">31,7%</span> de todos os cliques, enquanto a segunda recebe apenas 24,7%.</p>
+              <p>75% dos usuários nunca passam da primeira página de resultados.</p>
+            </div>
 
-          <div class="service-card metal-shine">
-            <div class="service-icon">💎</div>
-            <h3>Suporte Premium</h3>
-            <p>
-              Acompanhamento especializado contínuo. Nossa equipe garante que
-              seu site permaneça sempre no mais alto nível.
-            </p>
+            <div class="info-card">
+              <h3>💡 Inovações Futuras</h3>
+              <p>Tecnologias como <span class="highlight">WebAssembly</span>, <span class="highlight">PWAs</span> e <span class="highlight">Web3</span> estão revolucionando como criamos e interagimos com sites.</p>
+              <p>Realidade aumentada e virtual estão se integrando cada vez mais às experiências web.</p>
+            </div>
           </div>
         </section>
 
-        <section class="contact-section">
-          <h2>Pronto para Revolucionar sua Presença Digital?</h2>
-          <p>
-            Entre em contato conosco e vamos criar uma experiência digital
-            extraordinária que vai transformar sua marca.
-          </p>
-          <a href="mailto:velixweb@gmail.com" class="contact-btn"
-            >Iniciar Projeto</a
-          >
+        <!-- HOSPEDAGEM SECTION -->
+        <section id="hospedagem" class="content-section">
+          <h2 class="section-title">Como Funciona a Hospedagem</h2>
+          
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>🏠 O que é Hospedagem?</h3>
+              <p>A hospedagem é o <span class="highlight">"endereço físico"</span> do seu site na internet. É um espaço em servidores especializados onde todos os arquivos do seu site ficam armazenados.</p>
+              <p>Quando alguém digita seu domínio, o navegador busca esses arquivos no servidor e exibe o site.</p>
+            </div>
+
+            <div class="info-card">
+              <h3>🖥️ Tipos de Hospedagem</h3>
+              <ul>
+                <li><span class="highlight">Compartilhada:</span> Múltiplos sites em um servidor</li>
+                <li><span class="highlight">VPS:</span> Servidor virtual privado</li>
+                <li><span class="highlight">Dedicada:</span> Servidor exclusivo</li>
+                <li><span class="highlight">Cloud:</span> Rede de servidores</li>
+                <li><span class="highlight">CDN:</span> Distribuição global de conteúdo</li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3>📊 Recursos Importantes</h3>
+              <ul>
+                <li><span class="highlight">Espaço em Disco:</span> Quanto conteúdo pode armazenar</li>
+                <li><span class="highlight">Bandwidth:</span> Volume de dados transferidos</li>
+                <li><span class="highlight">SSL:</span> Certificado de segurança</li>
+                <li><span class="highlight">Backup:</span> Cópias de segurança automáticas</li>
+                <li><span class="highlight">Uptime:</span> Tempo online (ideal: 99,9%+)</li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3>🌐 DNS e Domínios</h3>
+              <p>O <span class="highlight">DNS</span> (Domain Name System) é como uma "agenda telefônica" da internet, traduzindo nomes de domínio em endereços IP.</p>
+              <p>Seu domínio é registrado separadamente da hospedagem, mas ambos trabalham juntos para tornar seu site acessível.</p>
+            </div>
+
+            <div class="info-card">
+              <h3>🔧 Painel de Controle</h3>
+              <p>Interfaces como <span class="highlight">cPanel</span>, <span class="highlight">Plesk</span> ou painéis customizados permitem gerenciar arquivos, emails, bancos de dados e configurações.</p>
+              <p>Funcionalidades incluem: instalação de CMS, monitoramento de recursos e configuração de emails.</p>
+            </div>
+
+            <div class="info-card">
+              <h3>💰 Custos e Escolha</h3>
+              <p>Hospedagem compartilhada: <span class="highlight">R$ 10-50/mês</span></p>
+              <p>VPS: <span class="highlight">R$ 50-300/mês</span></p>
+              <p>Dedicada: <span class="highlight">R$ 300-2000+/mês</span></p>
+              <p>A escolha depende do tráfego, recursos necessários e orçamento.</p>
+            </div>
+
+            <div class="info-card">
+              <h3>🛡️ Segurança e Backup</h3>
+              <p>Boas hospedagens oferecem <span class="highlight">firewall</span>, <span class="highlight">proteção contra malware</span>, backups automáticos e monitoramento 24/7.</p>
+              <p>SSL gratuito, proteção DDoS e atualizações de segurança são essenciais.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROCESSO SECTION -->
+        <section id="processo" class="content-section">
+          <h2 class="section-title">Processo de Criação de Sites</h2>
+          
+          <div class="timeline">
+            <div class="timeline-item">
+              <h4>1. Briefing e Planejamento</h4>
+              <div class="duration">Duração: 1-2 dias</div>
+              <p>Reunimos informações sobre sua empresa, objetivos, público-alvo e referências visuais. Definimos escopo, funcionalidades e cronograma do projeto.</p>
+            </div>
+
+            <div class="timeline-item">
+              <h4>2. Pesquisa e Análise</h4>
+              <div class="duration">Duração: 2-3 dias</div>
+              <p>Analisamos concorrentes, estudamos o mercado, definimos palavras-chave para SEO e criamos personas de usuários para orientar o design.</p>
+            </div>
+
+            <div class="timeline-item">
+              <h4>3. Arquitetura da Informação</h4>
+              <div class="duration">Duração: 1-2 dias</div>
+              <p>Estruturamos o mapa do site, organizamos conteúdos, definimos fluxos de navegação e criamos wireframes das páginas principais.</p>
+            </div>
+
+            <div class="timeline-item">
+              <h4>4. Design Visual</h4>
+              <div class="duration">Duração: 5-8 dias</div>
+              <p>Criamos layouts responsivos, escolhemos paleta de cores, tipografias, desenvolvemos identidade visual e produzimos protótipos interativos.</p>
+            </div>
+
+            <div class="timeline-item">
+              <h4>5. Desenvolvimento Frontend</h4>
+              <div class="duration">Duração: 7-12 dias</div>
+              <p>Transformamos designs em código HTML, CSS e JavaScript. Garantimos responsividade, otimização de performance e compatibilidade entre navegadores.</p>
+            </div>
+
+            <div class="timeline-item">
+              <h4>6. Desenvolvimento Backend</h4>
+              <div class="duration">Duração: 5-10 dias</div>
+              <p>Configuramos servidor, banco de dados, sistema de gerenciamento de conteúdo, formulários de contato e integrações necessárias.</p>
+            </div>
+
+            <div class="timeline-item">
+              <h4>7. Testes e Otimização</h4>
+              <div class="duration">Duração: 2-4 dias</div>
+              <p>Realizamos testes de funcionalidade, velocidade, SEO, acessibilidade e compatibilidade. Corrigimos bugs e otimizamos performance.</p>
+            </div>
+
+            <div class="timeline-item">
+              <h4>8. Launch e Entrega</h4>
+              <div class="duration">Duração: 1-2 dias</div>
+              <p>Configuramos hospedagem, domínio, SSL, fazemos deploy do site, configuramos analytics e entregamos documentação completa.</p>
+            </div>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>🎯 Metodologias Utilizadas</h3>
+              <ul>
+                <li><span class="highlight">Design Thinking:</span> Focado na experiência do usuário</li>
+                <li><span class="highlight">Agile/Scrum:</span> Desenvolvimento iterativo</li>
+                <li><span class="highlight">Mobile First:</span> Prioridade para dispositivos móveis</li>
+                <li><span class="highlight">Progressive Enhancement:</span> Funcionalidade gradual</li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3>🔄 Revisões e Feedback</h3>
+              <p>Durante o processo, incluímos <span class="highlight">3 rodadas de revisão</span> em cada fase principal.</p>
+              <p>Cliente tem acesso a ambiente de desenvolvimento para acompanhar progresso e dar feedback em tempo real.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- TECNOLOGIA SECTION -->
+        <section id="tecnologia" class="content-section">
+          <h2 class="section-title">Tecnologias e Conceitos</h2>
+          
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>🎨 Frontend (Cliente)</h3>
+              <p>É a parte <span class="highlight">visível</span> do site - tudo que o usuário vê e interage:</p>
+              <ul>
+                <li><span class="highlight">HTML:</span> Estrutura e conteúdo</li>
+                <li><span class="highlight">CSS:</span> Estilização e layout</li>
+                <li><span class="highlight">JavaScript:</span> Interatividade e dinamismo</li>
+                <li><span class="highlight">React/Vue/Angular:</span> Frameworks modernos</li>
+                <li><span class="highlight">SASS/LESS:</span> Pré-processadores CSS</li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3>⚙️ Backend (Servidor)</h3>
+              <p>A parte <span class="highlight">"invisível"</span> que processa dados e lógica de negócio:</p>
+              <ul>
+                <li><span class="highlight">PHP/Node.js/Python:</span> Linguagens de servidor</li>
+                <li><span class="highlight">MySQL/PostgreSQL:</span> Bancos de dados</li>
+                <li><span class="highlight">APIs:</span> Comunicação entre sistemas</li>
+                <li><span class="highlight">Laravel/Express:</span> Frameworks backend</li>
+                <li><span class="highlight">nginx/Apache:</span> Servidores web</li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3>🗄️ Banco de Dados</h3>
+              <p>Sistema que <span class="highlight">armazena e organiza</span> informações do site:</p>
+              <ul>
+                <li><span class="highlight">Relacionais:</span> MySQL, PostgreSQL (estrutura rígida)</li>
+                <li><span class="highlight">NoSQL:</span> MongoDB, Firebase (flexível)</li>
+                <li><span class="highlight">Cache:</span> Redis para performance</li>
+                <li><span class="highlight">Backup:</span> Cópias de segurança automáticas</li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3>🌐 Como um Site Funciona</h3>
+              <p><strong>Fluxo básico:</strong></p>
+              <ul>
+                <li>1. Usuário digita URL no navegador</li>
+                <li>2. DNS resolve o domínio para IP do servidor</li>
+                <li>3. Navegador faz requisição HTTP ao servidor</li>
+                <li>4. Servidor processa e consulta banco de dados</li>
+                <li>5. Backend gera HTML dinâmico</li>
+                <li>6. Navegador recebe e renderiza a página</li>
+                <li>7. Frontend executa JavaScript para interatividade</li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3>🔄 APIs e Integrações</h3>
+              <p><span class="highlight">APIs</span> (Interface de Programação de Aplicações) permitem comunicação entre diferentes sistemas:</p>
+              <ul>
+                <li><span class="highlight">REST APIs:</span> Padrão para web services</li>
+                <li><span class="highlight">GraphQL:</span> Consultas flexíveis</li>
+                <li><span class="highlight">Webhooks:</span> Notificações automáticas</li>
+                <li><span class="highlight">Third-party:</span> PayPal, Google Maps, redes sociais</li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3>🔒 Segurança Web</h3>
+              <p>Medidas essenciais para proteger sites:</p>
+              <ul>
+                <li><span class="highlight">SSL/TLS:</span> Criptografia de dados</li>
+                <li><span class="highlight">Firewall:</span> Filtro de tráfego malicioso</li>
+                <li><span class="highlight">Sanitização:</span> Limpeza de dados de entrada</li>
+                <li><span class="highlight">Autenticação:</span> Verificação de identidade</li>
+                <li><span class="highlight">HTTPS:</span> Protocolo seguro obrigatório</li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3>📱 Responsividade</h3>
+              <p>Técnicas para adaptar sites a diferentes telas:</p>
+              <ul>
+                <li><span class="highlight">Mobile First:</span> Design começando pelo celular</li>
+                <li><span class="highlight">Media Queries:</span> CSS condicional por tamanho</li>
+                <li><span class="highlight">Grid/Flexbox:</span> Layouts flexíveis</li>
+                <li><span class="highlight">Viewport:</span> Configuração da área visível</li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3>⚡ Performance</h3>
+              <p>Otimizações para velocidade:</p>
+              <ul>
+                <li><span class="highlight">Compressão:</span> Redução de tamanho de arquivos</li>
+                <li><span class="highlight">Minificação:</span> Remoção de espaços desnecessários</li>
+                <li><span class="highlight">CDN:</span> Distribuição global de conteúdo</li>
+                <li><span class="highlight">Lazy Loading:</span> Carregamento sob demanda</li>
+                <li><span class="highlight">Caching:</span> Armazenamento temporário</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- TEMPO SECTION -->
+        <section id="tempo" class="content-section">
+          <h2 class="section-title">Cronograma de Desenvolvimento</h2>
+          
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>⚡ Site Simples (Landing Page)</h3>
+              <p><span class="highlight">Prazo: 7-14 dias</span></p>
+              <ul>
+                <li>5-10 páginas estáticas</li>
+                <li>Design responsivo básico</li>
+                <li>Formulário de contato</li>
+                <li>Otimização básica de SEO</li>
+                <li>Integração com Google Analytics</li>
+              </ul>
+              <p><strong>Ideal para:</strong> Profissionais liberais, pequenos negócios, portfólios</p>
+            </div>
+
+            <div class="info-card">
+              <h3>🏢 Site Corporativo</h3>
+              <p><span class="highlight">Prazo: 20-35 dias</span></p>
+              <ul>
+                <li>10-20 páginas</li>
+                <li>Painel administrativo</li>
+                <li>Blog integrado</li>
+                <li>Múltiplos formulários</li>
+                <li>SEO avançado</li>
+                <li>Integrações com redes sociais</li>
+              </ul>
+              <p><strong>Ideal para:</strong> Empresas estabelecidas, prestadores de serviços</p>
+            </div>
+
+            <div class="info-card">
+              <h3>🛒 E-commerce Básico</h3>
+              <p><span class="highlight">Prazo: 30-45 dias</span></p>
+              <ul>
+                <li>Catálogo de produtos</li>
+                <li>Carrinho de compras</li>
+                <li>Sistema de pagamento</li>
+                <li>Painel do cliente</li>
+                <li>Gestão de estoque básica</li>
+                <li>Relatórios de vendas</li>
+              </ul>
+              <p><strong>Ideal para:</strong> Lojas iniciantes, produtos físicos/digitais</p>
+            </div>
+
+            <div class="info-card">
+              <h3>🏪 E-commerce Avançado</h3>
+              <p><span class="highlight">Prazo: 45-90 dias</span></p>
+              <ul>
+                <li>Múltiplos vendedores (marketplace)</li>
+                <li>Sistema de avaliações</li>
+                <li>Programa de fidelidade</li>
+                <li>Integrações ERP/CRM</li>
+                <li>App mobile</li>
+                <li>Dashboard avançado</li>
+              </ul>
+              <p><strong>Ideal para:</strong> Grandes varejistas, marketplaces</p>
+            </div>
+
+            <div class="info-card">
+              <h3>🌐 Portal/Sistema Web</h3>
+              <p><span class="highlight">Prazo: 60-120 dias</span></p>
+              <ul>
+                <li>Múltiplos níveis de usuário</li>
+                <li>Funcionalidades complexas</li>
+                <li>Integrações com APIs externas</li>
+                <li>Relatórios customizados</li>
+                <li>Sistema de notificações</li>
+                <li>Módulos específicos do negócio</li>
+              </ul>
+              <p><strong>Ideal para:</strong> Empresas grandes, sistemas internos</p>
+            </div>
+
+            <div class="info-card">
+              <h3>📱 Progressive Web App (PWA)</h3>
+              <p><span class="highlight">Prazo: 40-80 dias</span></p>
+              <ul>
+                <li>Funciona offline</li>
+                <li>Instalável no celular</li>
+                <li>Push notifications</li>
+                <li>Performance de app nativo</li>
+                <li>Sincronização em background</li>
+                <li>Experiência mobile aprimorada</li>
+              </ul>
+              <p><strong>Ideal para:</strong> Empresas que querem app sem desenvolvimento nativo</p>
+            </div>
+          </div>
+
+          <div class="info-card" style="margin-top: 2rem;">
+            <h3>⏰ Fatores que Influenciam o Prazo</h3>
+            <ul>
+              <li><span class="highlight">Complexidade do Design:</span> Layouts únicos demandam mais tempo</li>
+              <li><span class="highlight">Funcionalidades Específicas:</span> Recursos customizados aumentam desenvolvimento</li>
+              <li><span class="highlight">Integrações:</span> Conexões com sistemas externos</li>
+              <li><span class="highlight">Conteúdo:</span> Disponibilidade de textos, imagens e vídeos</li>
+              <li><span class="highlight">Revisões:</span> Número de alterações solicitadas</li>
+              <li><span class="highlight">Testes:</span> Tempo para garantir qualidade</li>
+              <li><span class="highlight">Responsividade:</span> Adaptação para múltiplos dispositivos</li>
+            </ul>
+          </div>
+
+          <div class="timeline" style="margin-top: 3rem;">
+            <div class="timeline-item">
+              <h4>Semana 1</h4>
+              <div class="duration">Planejamento e Design</div>
+              <p>Briefing, pesquisa, wireframes e aprovação do layout inicial.</p>
+            </div>
+
+            <div class="timeline-item">
+              <h4>Semana 2-3</h4>
+              <div class="duration">Desenvolvimento Core</div>
+              <p>Estruturação HTML, estilização CSS, programação JavaScript básica.</p>
+            </div>
+
+            <div class="timeline-item">
+              <h4>Semana 4</h4>
+              <div class="duration">Backend e Integrações</div>
+              <p>Configuração de servidor, banco de dados, formulários e integrações.</p>
+            </div>
+
+            <div class="timeline-item">
+              <h4>Semana 5</h4>
+              <div class="duration">Testes e Otimização</div>
+              <p>Testes de funcionalidade, performance, SEO e correções finais.</p>
+            </div>
+
+            <div class="timeline-item">
+              <h4>Launch</h4>
+              <div class="duration">Deploy e Entrega</div>
+              <p>Configuração final, migração para servidor de produção e entrega.</p>
+            </div>
+          </div>
+
+          <div class="contact-section">
+            <h2>Vamos Definir o Cronograma do Seu Projeto?</h2>
+            <p>
+              Cada projeto é único e possui necessidades específicas. Entre em contato para uma 
+              <span class="highlight">análise personalizada gratuita</span> e cronograma detalhado 
+              baseado exatamente no que você precisa.
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.95rem; color: #cccccc;">
+              💼 Receba um cronograma realista e personalizado para o seu projeto
+            </p>
+            <a href="mailto:velixweb@gmail.com" class="contact-btn">Solicitar Análise Gratuita</a>
+          </div>
         </section>
       </div>
     </main>
@@ -720,21 +1160,33 @@
     </footer>
 
     <script>
+      // Navigation functionality
+      const navLinks = document.querySelectorAll('.nav-link');
+      const sections = document.querySelectorAll('.content-section');
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          
+          // Remove active class from all links and sections
+          navLinks.forEach(l => l.classList.remove('active'));
+          sections.forEach(s => s.classList.remove('active'));
+          
+          // Add active class to clicked link
+          link.classList.add('active');
+          
+          // Show corresponding section
+          const sectionId = link.getAttribute('data-section');
+          document.getElementById(sectionId).classList.add('active');
+        });
+      });
+
       // Enhanced 3D effects on scroll
       window.addEventListener("scroll", () => {
         const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll(".floating-element");
-        const serviceCards = document.querySelectorAll(".service-card");
+        const serviceCards = document.querySelectorAll(".service-card, .info-card");
 
-        // Parallax effect for floating elements
-        parallaxElements.forEach((element, index) => {
-          const speed = 0.3 + index * 0.1;
-          const yPos = -(scrolled * speed);
-          const rotation = scrolled * 0.1;
-          element.style.transform = `translateY(${yPos}px) rotate(${rotation}deg)`;
-        });
-
-        // 3D tilt effect for service cards
+        // 3D tilt effect for cards
         serviceCards.forEach((card, index) => {
           const rect = card.getBoundingClientRect();
           const cardCenter = rect.top + rect.height / 2;
@@ -742,8 +1194,8 @@
           const distance = (cardCenter - windowCenter) / windowCenter;
 
           if (Math.abs(distance) < 1) {
-            const rotateX = distance * 10;
-            const rotateY = (index % 2 === 0 ? 1 : -1) * distance * 5;
+            const rotateX = distance * 5;
+            const rotateY = (index % 2 === 0 ? 1 : -1) * distance * 3;
             card.style.transform = `translateY(0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
           }
         });
@@ -754,12 +1206,12 @@
         const mouseX = e.clientX / window.innerWidth - 0.5;
         const mouseY = e.clientY / window.innerHeight - 0.5;
 
-        const serviceCards = document.querySelectorAll(".service-card");
-        serviceCards.forEach((card, index) => {
+        const cards = document.querySelectorAll(".service-card, .info-card");
+        cards.forEach((card, index) => {
           const rect = card.getBoundingClientRect();
           if (rect.top < window.innerHeight && rect.bottom > 0) {
-            const rotateY = mouseX * 10;
-            const rotateX = -mouseY * 10;
+            const rotateY = mouseX * 5;
+            const rotateX = -mouseY * 5;
             card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
           }
         });
@@ -767,8 +1219,8 @@
 
       // Reset card transforms when mouse leaves
       document.addEventListener("mouseleave", () => {
-        const serviceCards = document.querySelectorAll(".service-card");
-        serviceCards.forEach((card) => {
+        const cards = document.querySelectorAll(".service-card, .info-card");
+        cards.forEach((card) => {
           card.style.transform = "rotateX(0deg) rotateY(0deg)";
         });
       });
@@ -782,18 +1234,39 @@
         }, 200);
       });
 
-      // Add metallic sound effect simulation (visual feedback)
-      document
-        .querySelectorAll(".service-card, .contact-btn")
-        .forEach((element) => {
-          element.addEventListener("mouseenter", function () {
-            this.style.filter = "brightness(1.2) contrast(1.1)";
-          });
-
-          element.addEventListener("mouseleave", function () {
-            this.style.filter = "brightness(1) contrast(1)";
-          });
+      // Add metallic hover effects
+      document.querySelectorAll(".service-card, .contact-btn, .info-card").forEach((element) => {
+        element.addEventListener("mouseenter", function () {
+          this.style.filter = "brightness(1.1) contrast(1.05)";
         });
+
+        element.addEventListener("mouseleave", function () {
+          this.style.filter = "brightness(1) contrast(1)";
+        });
+      });
+
+      // Smooth animations for timeline items
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateX(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Observe timeline items and cards for animation
+      document.querySelectorAll('.timeline-item, .info-card').forEach((item) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-20px)';
+        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(item);
+      });
     </script>
   </body>
 </html>
